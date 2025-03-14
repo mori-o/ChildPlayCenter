@@ -16,6 +16,9 @@ namespace ChildPlayCenter.Models
         public int TypeId { get; set; }
         public string? Description { get; set; }
         public int? AnimatorId { get; set; }
+
+        // Связанные сущности
         public Service? Service { get; set; }
+        public Person? Animator { get; set; } // Навигационное свойство для аниматора
     }
 }

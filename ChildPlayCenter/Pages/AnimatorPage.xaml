@@ -59,6 +59,11 @@
                                        Width="2*" 
                                        FontSize="16" 
                                        Foreground="#555555"/>
+                    <DataGridTextColumn Header="Аниматор" 
+                   Binding="{Binding Animator.Id}" 
+                   Width="2*" 
+                   FontSize="16" 
+                   Foreground="#555555"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

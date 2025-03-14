@@ -123,9 +123,9 @@ public class PlayCenterContext : DbContext
             .HasForeignKey(o => o.ClientId);
 
         modelBuilder.Entity<Event>()
-            .HasOne(e => e.Service)
+            .HasOne(e => e.Animator)
             .WithMany()
-            .HasForeignKey(e => e.ServiceId);
+            .HasForeignKey(e => e.AnimatorId);
 
         modelBuilder.Entity<GameMachine>()
             .HasOne(g => g.Status)

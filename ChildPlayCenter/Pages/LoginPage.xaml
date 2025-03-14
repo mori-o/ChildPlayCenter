@@ -47,7 +47,7 @@
 
                 <!-- Поле пароля с иконкой -->
                 <DockPanel Margin="0,0,0,25">
-                    <TextBlock Text="&#xE8AB;" 
+                    <TextBlock Text="&#xE8AB;"
                               FontFamily="Segoe MDL2 Assets" 
                               FontSize="20" 
                               Foreground="#FF69B4" 

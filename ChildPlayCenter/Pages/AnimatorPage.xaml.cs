@@ -31,7 +31,10 @@ namespace ChildPlayCenter.Pages
         {
             using (var context = new PlayCenterContext())
             {
-                EventsGrid.ItemsSource = context.Events.Include(e => e.Service).ToList();
+                EventsGrid.ItemsSource = context.Events
+                    .Include(e => e.Service)
+                    .Include(e => e.Animator) // Подтягиваем данные аниматора
+                    .ToList();
             }
         }
     }
