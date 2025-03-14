@@ -8,23 +8,128 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManagerPage">
 
-    <Grid>
-        <StackPanel>
-            <ComboBox x:Name="ClientComboBox" DisplayMemberPath="ContactInfo" Margin="5"/>
-            <DataGrid x:Name="ServicesGrid" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Добавить" Click="AddToOrder_Click" Tag="{Binding Id}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Button Content="Оформить заказ" Click="PlaceOrder_Click"/>
-        </StackPanel>
+    <Grid Background="#FFF5E1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                  Text="FunkyHall - Менеджер" 
+                  FontSize="28" 
+                  FontFamily="Comic Sans MS" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,20,0,20"/>
+
+        <!-- Основной контент -->
+        <Border Grid.Row="1" 
+                Background="#FFFFFF" 
+                CornerRadius="15" 
+                BorderBrush="#FF69B4" 
+                BorderThickness="2" 
+                Margin="20" 
+                Padding="10">
+            <StackPanel>
+                <ComboBox x:Name="ClientComboBox" 
+                         DisplayMemberPath="ContactInfo" 
+                         Margin="0,0,0,10" 
+                         FontSize="16" 
+                         Foreground="#555555" 
+                         BorderBrush="#FFB347" 
+                         Background="#FFF5E1" 
+                         Padding="5" 
+                         Width="300" 
+                         HorizontalAlignment="Left"/>
+                <DataGrid x:Name="ServicesGrid" 
+                         AutoGenerateColumns="False" 
+                         BorderThickness="0" 
+                         Background="Transparent" 
+                         RowBackground="#FFF5E1" 
+                         AlternatingRowBackground="#FFE8D6">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" 
+                                           Binding="{Binding Name}" 
+                                           Width="*" 
+                                           FontSize="16" 
+                                           Foreground="#555555"/>
+                        <DataGridTextColumn Header="Цена" 
+                                           Binding="{Binding Price}" 
+                                           Width="*" 
+                                           FontSize="16" 
+                                           Foreground="#555555"/>
+                        <DataGridTemplateColumn Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Добавить" 
+                                           Click="AddToOrder_Click" 
+                                           Tag="{Binding Id}" 
+                                           Background="#FF69B4" 
+                                           Foreground="White" 
+                                           BorderThickness="0" 
+                                           Padding="5" 
+                                           FontSize="14" 
+                                           Cursor="Hand">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Оформить заказ" 
+                        Click="PlaceOrder_Click" 
+                        Background="#FF69B4" 
+                        Foreground="White" 
+                        FontSize="16" 
+                        BorderThickness="0" 
+                        Margin="0,10,0,0" 
+                        Height="40" 
+                        Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <!-- Декоративные иконки -->
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FFB347" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" 
+                  Margin="20"/>
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Right" 
+                  VerticalAlignment="Bottom" 
+                  Margin="20"/>
     </Grid>
 </Page>

@@ -8,38 +8,153 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminPage">
 
-    <Grid>
-        <TabControl>
-            <TabItem Header="Пользователи">
-                <DataGrid x:Name="PersonsGrid" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
-                        <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}"/>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Удалить" Click="DeletePerson_Click" Tag="{Binding Id}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-            <TabItem Header="Сервисы">
-                <DataGrid x:Name="ServicesGrid" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Удалить" Click="DeleteService_Click" Tag="{Binding Id}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-        </TabControl>
+    <Grid Background="#FFF5E1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                  Text="FunkyHall - Панель администратора" 
+                  FontSize="28" 
+                  FontFamily="Comic Sans MS" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,20,0,20"/>
+
+        <!-- TabControl -->
+        <Border Grid.Row="1" 
+                Background="#FFFFFF" 
+                CornerRadius="15" 
+                BorderBrush="#FF69B4" 
+                BorderThickness="2" 
+                Margin="20" 
+                Padding="10">
+            <TabControl BorderThickness="0" Background="Transparent">
+                <TabItem Header="Пользователи" 
+                        FontSize="16" 
+                        Foreground="#FF69B4" 
+                        Background="#FFF5E1">
+                    <DataGrid x:Name="PersonsGrid" 
+                             AutoGenerateColumns="False" 
+                             BorderThickness="0" 
+                             Background="Transparent" 
+                             RowBackground="#FFF5E1" 
+                             AlternatingRowBackground="#FFE8D6">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Логин" 
+                                               Binding="{Binding Login}" 
+                                               Width="*" 
+                                               FontSize="16" 
+                                               Foreground="#555555"/>
+                            <DataGridTextColumn Header="Роль" 
+                                               Binding="{Binding Role.Name}" 
+                                               Width="*" 
+                                               FontSize="16" 
+                                               Foreground="#555555"/>
+                            <DataGridTemplateColumn Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Удалить" 
+                                               Click="DeletePerson_Click" 
+                                               Tag="{Binding Id}" 
+                                               Background="#FFB347" 
+                                               Foreground="White" 
+                                               BorderThickness="0" 
+                                               Padding="5" 
+                                               FontSize="14" 
+                                               Cursor="Hand">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Сервисы" 
+                        FontSize="16" 
+                        Foreground="#FF69B4" 
+                        Background="#FFF5E1">
+                    <DataGrid x:Name="ServicesGrid" 
+                             AutoGenerateColumns="False" 
+                             BorderThickness="0" 
+                             Background="Transparent" 
+                             RowBackground="#FFF5E1" 
+                             AlternatingRowBackground="#FFE8D6">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" 
+                                               Binding="{Binding Name}" 
+                                               Width="*" 
+                                               FontSize="16" 
+                                               Foreground="#555555"/>
+                            <DataGridTextColumn Header="Цена" 
+                                               Binding="{Binding Price}" 
+                                               Width="*" 
+                                               FontSize="16" 
+                                               Foreground="#555555"/>
+                            <DataGridTemplateColumn Width="Auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Удалить" 
+                                               Click="DeleteService_Click" 
+                                               Tag="{Binding Id}" 
+                                               Background="#FFB347" 
+                                               Foreground="White" 
+                                               BorderThickness="0" 
+                                               Padding="5" 
+                                               FontSize="14" 
+                                               Cursor="Hand">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" CornerRadius="8">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Border>
+
+        <!-- Декоративные иконки -->
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FFB347" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" 
+                  Margin="20"/>
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Right" 
+                  VerticalAlignment="Bottom" 
+                  Margin="20"/>
     </Grid>
 </Page>

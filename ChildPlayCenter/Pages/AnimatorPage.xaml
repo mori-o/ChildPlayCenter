@@ -8,14 +8,75 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AnimatorPage">
 
-    <Grid>
-        <DataGrid x:Name="EventsGrid" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Service.Name}"/>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
-                <DataGridTextColumn Header="Длительность" Binding="{Binding Duration}"/>
-                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid Background="#FFF5E1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                  Text="FunkyHall - Аниматор" 
+                  FontSize="28" 
+                  FontFamily="Comic Sans MS" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,20,0,20"/>
+
+        <!-- Таблица событий -->
+        <Border Grid.Row="1" 
+                Background="#FFFFFF" 
+                CornerRadius="15" 
+                BorderBrush="#FF69B4" 
+                BorderThickness="2" 
+                Margin="20" 
+                Padding="10">
+            <DataGrid x:Name="EventsGrid" 
+                     AutoGenerateColumns="False" 
+                     IsReadOnly="True" 
+                     BorderThickness="0" 
+                     Background="Transparent" 
+                     RowBackground="#FFF5E1" 
+                     AlternatingRowBackground="#FFE8D6">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" 
+                                       Binding="{Binding Service.Name}" 
+                                       Width="*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridTextColumn Header="Дата" 
+                                       Binding="{Binding Date}" 
+                                       Width="*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridTextColumn Header="Длительность" 
+                                       Binding="{Binding Duration}" 
+                                       Width="*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridTextColumn Header="Описание" 
+                                       Binding="{Binding Description}" 
+                                       Width="2*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Декоративные иконки -->
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FFB347" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" 
+                  Margin="20"/>
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Right" 
+                  VerticalAlignment="Bottom" 
+                  Margin="20"/>
     </Grid>
 </Page>

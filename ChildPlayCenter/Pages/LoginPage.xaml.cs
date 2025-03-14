@@ -54,6 +54,8 @@ namespace ChildPlayCenter.Pages
                         return;
                     }
 
+                    MessageBox.Show($"Текущая роль пользователя: {user.Role?.Name}");
+
                     Page targetPage = user.Role?.Name switch
                     {
                         "клиент" => new ClientPage(user.Id),

@@ -8,14 +8,74 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GuestPage">
 
-    <Grid>
-        <DataGrid x:Name="ServicesGrid" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-                <DataGridCheckBoxColumn Header="Доступно" Binding="{Binding IsAvailable}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid Background="#FFF5E1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                  Text="FunkyHall - Гость" 
+                  FontSize="28" 
+                  FontFamily="Comic Sans MS" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,20,0,20"/>
+
+        <!-- Таблица услуг -->
+        <Border Grid.Row="1" 
+                Background="#FFFFFF" 
+                CornerRadius="15" 
+                BorderBrush="#FF69B4" 
+                BorderThickness="2" 
+                Margin="20" 
+                Padding="10">
+            <DataGrid x:Name="ServicesGrid" 
+                     AutoGenerateColumns="False" 
+                     IsReadOnly="True" 
+                     BorderThickness="0" 
+                     Background="Transparent" 
+                     RowBackground="#FFF5E1" 
+                     AlternatingRowBackground="#FFE8D6">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" 
+                                       Binding="{Binding Name}" 
+                                       Width="*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridTextColumn Header="Описание" 
+                                       Binding="{Binding Description}" 
+                                       Width="2*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridTextColumn Header="Цена" 
+                                       Binding="{Binding Price}" 
+                                       Width="*" 
+                                       FontSize="16" 
+                                       Foreground="#555555"/>
+                    <DataGridCheckBoxColumn Header="Доступно" 
+                                           Binding="{Binding IsAvailable}" 
+                                           Width="*" 
+                                           ElementStyle="{StaticResource {x:Type CheckBox}}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Декоративные иконки -->
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FFB347" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" 
+                  Margin="20"/>
+        <TextBlock Text="" 
+                  FontFamily="Segoe MDL2 Assets" 
+                  FontSize="50" 
+                  Foreground="#FF69B4" 
+                  HorizontalAlignment="Right" 
+                  VerticalAlignment="Bottom" 
+                  Margin="20"/>
     </Grid>
 </Page>
