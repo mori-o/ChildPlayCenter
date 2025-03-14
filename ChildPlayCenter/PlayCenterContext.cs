@@ -24,13 +24,12 @@ public class PlayCenterContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=child_play_center;Username=postgres")
-                      .EnableSensitiveDataLogging() // Для отладки
+                      .EnableSensitiveDataLogging()
                       .EnableDetailedErrors();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Настройка глобального конвертера для DateTime в UTC
         foreach (var entityType in modelBuilder.Model.GetEntityTypes())
         {
             foreach (var property in entityType.GetProperties())
